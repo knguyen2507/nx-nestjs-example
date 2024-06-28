@@ -15,9 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-nestjs-example/postgres": ["libs/postgres/src/index.ts"],
-      "@nx-nestjs-example/redis": ["libs/redis/src/index.ts"],
-      "@nx-nestjs-example/utility": ["libs/utility/src/index.ts"]
+      "@libs/casl": ["libs/casl/src/index.ts"],
+      "@libs/guard": ["libs/guard/src/index.ts"],
+      "@libs/postgres": ["libs/postgres/src/index.ts"],
+      "@libs/redis": ["libs/redis/src/index.ts"],
+      "@libs/utility": ["libs/utility/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
