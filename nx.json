@@ -34,7 +34,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/server-e2e/**/*"]
+      "exclude": ["apps/server-e2e/**/*", "apps/upload-server-e2e/**/*", "apps/mail-server-e2e/**/*"]
     }
   ]
 }

@@ -40,7 +40,7 @@ http:
     strip-app-1:
       stripPrefix:
         prefixes:
-          - '/app-1'
+          - '/server'
     strip-mail-server:
       stripPrefix:
         prefixes:

@@ -23,22 +23,19 @@ class EnvironmentVariables {
   readonly PORT: number = Number(process.env['PORT']);
 
   @IsString()
-  readonly JWT_ACCESS_SECRET: string = process.env[
-    'JWT_ACCESS_SECRET'
-  ] as string;
+  readonly GLOBAL_PREFIX: string = process.env['GLOBAL_PREFIX'] as string;
+
+  @IsString()
+  readonly JWT_ACCESS_SECRET: string = process.env['JWT_ACCESS_SECRET'] as string;
 
   @IsNumber()
   readonly JWT_ACCESS_EXPIRE: number = Number(process.env['JWT_ACCESS_EXPIRE']);
 
   @IsString()
-  readonly JWT_REFRESH_SECRET: string = process.env[
-    'JWT_REFRESH_SECRET'
-  ] as string;
+  readonly JWT_REFRESH_SECRET: string = process.env['JWT_REFRESH_SECRET'] as string;
 
   @IsNumber()
-  readonly JWT_REFRESH_EXPIRE: number = Number(
-    process.env['JWT_REFRESH_EXPIRE']
-  );
+  readonly JWT_REFRESH_EXPIRE: number = Number(process.env['JWT_REFRESH_EXPIRE']);
 
   @IsString()
   readonly REDIS_HOST: string = process.env['REDIS_HOST'] as string;
@@ -53,19 +50,13 @@ class EnvironmentVariables {
   readonly REDIS_PASSWORD: string = process.env['REDIS_PASSWORD'] as string;
 
   @IsString()
-  readonly CLOUDINARY_CLOUDNAME: string = process.env[
-    'CLOUDINARY_CLOUDNAME'
-  ] as string;
+  readonly CLOUDINARY_CLOUDNAME: string = process.env['CLOUDINARY_CLOUDNAME'] as string;
 
   @IsString()
-  readonly CLOUDINARY_APIKEY: string = process.env[
-    'CLOUDINARY_APIKEY'
-  ] as string;
+  readonly CLOUDINARY_APIKEY: string = process.env['CLOUDINARY_APIKEY'] as string;
 
   @IsString()
-  readonly CLOUDINARY_APISECRET: string = process.env[
-    'CLOUDINARY_APISECRET'
-  ] as string;
+  readonly CLOUDINARY_APISECRET: string = process.env['CLOUDINARY_APISECRET'] as string;
 
   @IsString()
   readonly POSTGRES_HOST: string = process.env['POSTGRES_HOST'] as string;
@@ -80,9 +71,7 @@ class EnvironmentVariables {
   readonly POSTGRES_USER: string = process.env['POSTGRES_USER'] as string;
 
   @IsString()
-  readonly POSTGRES_PASSWORD: string = process.env[
-    'POSTGRES_PASSWORD'
-  ] as string;
+  readonly POSTGRES_PASSWORD: string = process.env['POSTGRES_PASSWORD'] as string;
 
   @IsString()
   readonly CERBOS_HOST: string = process.env['CERBOS_HOST'] as string;

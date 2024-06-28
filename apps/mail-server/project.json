@@ -1,0 +1,24 @@
+{
+  "name": "mail-server",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mail-server/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "mail-server:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "mail-server:build:development"
+        },
+        "production": {
+          "buildTarget": "mail-server:build:production"
+        }
+      }
+    }
+  }
+}
