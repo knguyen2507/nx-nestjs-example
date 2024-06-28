@@ -1,0 +1,51 @@
+http:
+  routers:
+    router-server:
+      entryPoints:
+        - http
+      service: server
+      rule: PathPrefix(`/server`)
+      middlewares:
+        - strip-server
+    router-mail-server:
+      entryPoints:
+        - http
+      service: app-mail-server
+      rule: PathPrefix(`/mail`)
+      middlewares:
+        - strip-mail-server
+    router-upload-server:
+      entryPoints:
+        - http
+      service: app-upload-server
+      rule: PathPrefix(`/upload`)
+      middlewares:
+        - strip-app-upload-server
+
+  services:
+    app-server:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:3010
+    app-mail-server:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:3020
+    app-upload-server:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:3030
+
+  middlewares:
+    strip-app-1:
+      stripPrefix:
+        prefixes:
+          - '/app-1'
+    strip-mail-server:
+      stripPrefix:
+        prefixes:
+          - '/mail'
+    strip-upload-server:
+      stripPrefix:
+        prefixes:
+          - '/upload'
