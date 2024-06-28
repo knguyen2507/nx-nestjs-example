@@ -17,6 +17,7 @@ services:
     ports:
       - 5432:5432
     volumes:
+      - ../../cerbos/cerbos.sql:/docker-entrypoint-initdb.d/initdb.sql
       - postgres-data:/var/lib/postgresql/data
     environment:
       - TZ=Asia/Ho_Chi_Minh
@@ -67,3 +68,13 @@ services:
       - traefik.http.services.traefik-public.loadbalancer.server.port=8080
     networks:
       - gateway-network
+
+  store-cerbos:
+    container_name: store-cerbos
+    image: ghcr.io/cerbos/cerbos:latest
+    command: ['server', '--config=/config/config.yaml']
+    volumes:
+      - ../../cerbos/config:/config
+    ports:
+      - 3592:3592
+      - 3593:3593
