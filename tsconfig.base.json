@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-nestjs-example/postgres": ["libs/postgres/src/index.ts"],
+      "@nx-nestjs-example/redis": ["libs/redis/src/index.ts"],
+      "@nx-nestjs-example/utility": ["libs/utility/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

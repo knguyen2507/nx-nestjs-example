@@ -1,0 +1,9 @@
+{
+  "name": "postgres",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/postgres/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project postgres --web",
+  "targets": {}
+}
