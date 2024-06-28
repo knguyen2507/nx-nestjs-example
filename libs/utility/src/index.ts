@@ -1,1 +1,2 @@
-export * from './lib/utility.module';
+export * from './constant/environment';
+export * from './module/utility.module';

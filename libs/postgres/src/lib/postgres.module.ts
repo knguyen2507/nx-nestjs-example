@@ -8,6 +8,7 @@ import {
   Repository,
   SelectQueryBuilder,
 } from 'typeorm';
+import { environment } from '@libs/utility';
 
 interface WriteConnection {
   readonly startTransaction: (
