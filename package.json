@@ -40,7 +40,9 @@
     "typescript": "~5.4.2",
     "webpack-cli": "^5.1.4"
   },
-  "scripts": {},
+  "scripts": {
+    "infras:docker:build": "docker-compose -f docker/infrastructure-services/docker-compose.yml up -d"
+  },
   "private": true,
   "license": "MIT"
 }
