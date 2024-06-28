@@ -1,7 +1,17 @@
 {
-  "recommendations": [
-    "nrwl.angular-console",
-    "esbenp.prettier-vscode",
-    "firsttris.vscode-jest-runner"
-  ]
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "eslint.enable": true,
+  "eslint.nodePath": "./node_modules/eslint/bin",
+  "eslint.workingDirectories": ["./"],
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "editor.formatOnSave": true,
+  "vs-kubernetes": {
+    "disable-linters": ["resource-limits"]
+  }
 }
