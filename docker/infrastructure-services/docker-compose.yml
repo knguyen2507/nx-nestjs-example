@@ -42,7 +42,7 @@ services:
 
   local-traefik:
     image: traefik:v2.9.8
-    restart: always
+    restart: 'no'
     container_name: local-traefik
     ports:
       - target: 3000
@@ -54,9 +54,9 @@ services:
       # traefik logs
       - traefik-data:/logs
       # traefik config
-      - ./traefik/traefik.yml:/etc/traefik/traefik.yml
+      - ../../traefik/traefik.yml:/etc/traefik/traefik.yml
       # traefik file provider
-      - ./traefik/dynamic.yaml:/dynamic/dynamic.yaml
+      - ../../traefik/dynamic.yaml:/dynamic/dynamic.yaml
     labels:
       - traefik.enable=true
       - traefik.constraint-label=traefik-public
@@ -69,8 +69,9 @@ services:
     networks:
       - gateway-network
 
-  store-cerbos:
-    container_name: store-cerbos
+  local-cerbos:
+    container_name: local-cerbos
+    restart: 'no'
     image: ghcr.io/cerbos/cerbos:latest
     command: ['server', '--config=/config/config.yaml']
     volumes:
