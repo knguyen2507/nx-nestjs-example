@@ -9,14 +9,19 @@ import {
   SelectQueryBuilder,
 } from 'typeorm';
 import { environment } from '@libs/utility';
+import Brand from './entities/brand.entity';
+import Category from './entities/category.entity';
+import Logs from './entities/logs.entity';
+import Otp from './entities/otp.entity';
+import ProductDefinition from './entities/product-definition.entity';
+import Product from './entities/product.entity';
+import Sales from './entities/sales.entity';
+import Shop from './entities/shop.entity';
+import User from './entities/user.entity';
 
 interface WriteConnection {
   readonly startTransaction: (
-    level?:
-      | 'READ UNCOMMITTED'
-      | 'READ COMMITTED'
-      | 'REPEATABLE READ'
-      | 'SERIALIZABLE'
+    level?: 'READ UNCOMMITTED' | 'READ COMMITTED' | 'REPEATABLE READ' | 'SERIALIZABLE',
   ) => Promise<void>;
   readonly commitTransaction: () => Promise<void>;
   readonly rollbackTransaction: () => Promise<void>;
@@ -25,14 +30,12 @@ interface WriteConnection {
 }
 
 interface ReadConnection {
-  readonly getRepository: <T extends ObjectLiteral>(
-    target: EntityTarget<T>
-  ) => Repository<T>;
+  readonly getRepository: <T extends ObjectLiteral>(target: EntityTarget<T>) => Repository<T>;
   readonly query: (query: string) => Promise<any>;
   readonly createQueryBuilder: <Entity extends ObjectLiteral>(
     entityClass: EntityTarget<Entity>,
     alias: string,
-    queryRunner?: QueryRunner
+    queryRunner?: QueryRunner,
   ) => SelectQueryBuilder<Entity>;
 }
 
@@ -42,7 +45,7 @@ export let readConnection = {} as ReadConnection;
 class PostgreSQLService implements OnModuleInit, OnModuleDestroy {
   private readonly dataSource = new DataSource({
     type: 'postgres',
-    entities: [],
+    entities: [Brand, Category, Logs, Otp, ProductDefinition, Product, Sales, Shop, User],
     host: environment.POSTGRES_HOST,
     port: environment.POSTGRES_PORT,
     database: environment.POSTGRES_DB,
@@ -53,8 +56,7 @@ class PostgreSQLService implements OnModuleInit, OnModuleDestroy {
 
   async onModuleInit(): Promise<void> {
     await this.dataSource.initialize();
-    if (!this.dataSource.isInitialized)
-      throw new Error('DataSource is not initialized');
+    if (!this.dataSource.isInitialized) throw new Error('DataSource is not initialized');
     writeConnection = this.dataSource.createQueryRunner();
     readConnection = this.dataSource.manager;
   }
