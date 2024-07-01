@@ -19,7 +19,8 @@
       "@libs/guard": ["libs/guard/src/index.ts"],
       "@libs/postgres": ["libs/postgres/src/index.ts"],
       "@libs/redis": ["libs/redis/src/index.ts"],
-      "@libs/utility": ["libs/utility/src/index.ts"]
+      "@libs/utility": ["libs/utility/src/index.ts"],
+      "@nx-nestjs-example/cerbos": ["libs/cerbos/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
