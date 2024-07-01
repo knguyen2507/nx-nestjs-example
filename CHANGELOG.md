@@ -1,3 +1,12 @@
+## <small>1.0.1 (2024-07-01)</small>
+
+* fix: postgres module ([c883054](https://github.com/knguyen2507/nx-nestjs-example/commit/c883054))
+* fix: remove assets ([ea3eaef](https://github.com/knguyen2507/nx-nestjs-example/commit/ea3eaef))
+* fix: traefik ([88fdfb0](https://github.com/knguyen2507/nx-nestjs-example/commit/88fdfb0))
+* feat: add cerbos ([fc9c100](https://github.com/knguyen2507/nx-nestjs-example/commit/fc9c100))
+
+
+
 ## <small>0.0.2 (2024-07-01)</small>
 
 * fix: directory traefik file ([a63f3e1](https://github.com/knguyen2507/nx-nestjs-example/commit/a63f3e1))
