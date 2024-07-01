@@ -7,12 +7,7 @@ import helmet from 'helmet';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const [GLOBAL_PREFIX, APPNAME, PORT, NODE_ENV] = [
-    environment.GLOBAL_PREFIX,
-    environment.APPNAME,
-    environment.PORT,
-    environment.NODE_ENV,
-  ];
+  const [APPNAME, PORT, NODE_ENV] = [environment.APPNAME, environment.PORT, environment.NODE_ENV];
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
@@ -32,7 +27,7 @@ async function bootstrap() {
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup(`${GLOBAL_PREFIX}/${pathPrefixSwagger.setup}`, app, document);
+  SwaggerModule.setup(pathPrefixSwagger.setup, app, document);
 
   await app.listen(PORT);
   Logger.log(`App ${APPNAME} listen on port ${PORT}`);

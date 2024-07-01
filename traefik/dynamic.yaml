@@ -1,51 +1,51 @@
 http:
   routers:
-    router-server:
+    router-app-server:
       entryPoints:
         - http
-      service: server
-      rule: PathPrefix(`/server`)
+      service: app-server
+      rule: Host(`localhost`) && PathPrefix(`/msx-server`)
       middlewares:
-        - strip-server
-    router-mail-server:
-      entryPoints:
-        - http
-      service: app-mail-server
-      rule: PathPrefix(`/mail`)
-      middlewares:
-        - strip-mail-server
-    router-upload-server:
+        - strip-app-server
+    router-app-upload-server:
       entryPoints:
         - http
       service: app-upload-server
-      rule: PathPrefix(`/upload`)
+      rule: Host(`localhost`) && PathPrefix(`/msx-upload`)
       middlewares:
         - strip-app-upload-server
+    router-app-mail-server:
+      entryPoints:
+        - http
+      service: app-mail-server
+      rule: Host(`localhost`) && PathPrefix(`/msx-mail`)
+      middlewares:
+        - strip-app-mail-server
 
   services:
     app-server:
       loadBalancer:
         servers:
           - url: http://host.docker.internal:3010
-    app-mail-server:
+    app-upload-server:
       loadBalancer:
         servers:
           - url: http://host.docker.internal:3020
-    app-upload-server:
+    app-mail-server:
       loadBalancer:
         servers:
           - url: http://host.docker.internal:3030
 
   middlewares:
-    strip-app-1:
+    strip-app-server:
       stripPrefix:
         prefixes:
-          - '/server'
-    strip-mail-server:
+          - '/msx-server'
+    strip-app-upload-server:
       stripPrefix:
         prefixes:
-          - '/mail'
-    strip-upload-server:
+          - '/msx-upload'
+    strip-app-mail-server:
       stripPrefix:
         prefixes:
-          - '/upload'
+          - '/msx-mail'
