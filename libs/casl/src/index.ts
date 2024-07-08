@@ -1,1 +1,1 @@
-export * from './lib/casl.module';
+export * from './lib/casl.server.module';

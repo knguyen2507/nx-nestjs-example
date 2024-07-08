@@ -6,8 +6,11 @@ export class BaseEntity {
   @Column({ type: 'json' })
   created_at!: PIC;
 
-  @Column({ type: 'json' })
-  updated_at!: PIC;
+  @Column({
+    type: 'json',
+    default: [],
+  })
+  updated_at!: PIC[];
 
   @VersionColumn()
   version!: number;

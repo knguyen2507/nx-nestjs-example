@@ -11,3 +11,10 @@ export interface Buyer_Info {
   address: string;
   at: Date;
 }
+
+export interface Image {
+  id: string;
+  name: string;
+  url: string;
+  isMain: boolean;
+}

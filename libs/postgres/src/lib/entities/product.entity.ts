@@ -19,7 +19,7 @@ export class Product extends BaseEntity {
   @Column()
   is_sold!: boolean;
 
-  @Column({ nullable: true })
+  @Column({ type: 'json', nullable: true })
   buyer_info!: Buyer_Info;
 
   @Column({ default: 0 })

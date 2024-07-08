@@ -3,6 +3,7 @@ import { BaseEntity } from './base.entity';
 import Brand from './brand.entity';
 import Category from './category.entity';
 import Product from './product.entity';
+import { Image } from '@libs/utility';
 
 @Entity()
 export class ProductDefinition extends BaseEntity {
@@ -21,11 +22,14 @@ export class ProductDefinition extends BaseEntity {
   @Column({ nullable: true })
   public sell_price!: number;
 
-  @Column()
-  public thumbnailLink!: string;
+  @Column({ type: 'json' })
+  public thumbnailLink!: Image;
 
-  @Column()
-  public images!: string[];
+  @Column({
+    type: 'json',
+    default: [],
+  })
+  public images!: Image[];
 
   @Column()
   public description!: string;
@@ -52,6 +56,9 @@ export class ProductDefinition extends BaseEntity {
 
   @Column()
   public is_deleted!: boolean;
+
+  @Column({ nullable: true })
+  public meta!: string;
 }
 
 export default ProductDefinition;

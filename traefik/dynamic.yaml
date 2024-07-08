@@ -1,26 +1,37 @@
 http:
   routers:
+    router-app-server-docs-api:
+      entryPoints:
+        - http
+      service: app-server
+      rule: Host(`localhost`) && PathPrefix(`/msx-server/`)
+      middlewares:
+        - strip-app-server-docs-api
+    router-app-upload-server-docs-api:
+      entryPoints:
+        - http
+      service: app-upload-server
+      rule: Host(`localhost`) && PathPrefix(`/msx-upload/`)
+      middlewares:
+        - strip-app-upload-server-docs-api
+    router-app-mail-server-docs-api:
+      entryPoints:
+        - http
+      service: app-mail-server
+      rule: Host(`localhost`) && PathPrefix(`/msx-mail/`)
+      middlewares:
+        - strip-app-mail-server-docs-api
     router-app-server:
       entryPoints:
         - http
       service: app-server
-      rule: Host(`localhost`) && PathPrefix(`/msx-server`)
-      middlewares:
-        - strip-app-server
-    router-app-upload-server:
-      entryPoints:
-        - http
-      service: app-upload-server
-      rule: Host(`localhost`) && PathPrefix(`/msx-upload`)
-      middlewares:
-        - strip-app-upload-server
-    router-app-mail-server:
-      entryPoints:
-        - http
-      service: app-mail-server
-      rule: Host(`localhost`) && PathPrefix(`/msx-mail`)
-      middlewares:
-        - strip-app-mail-server
+      rule: 'Host(`localhost`) &&
+      (
+        PathPrefix(`/product/`) ||
+        PathPrefix(`/product-definition/`) ||
+        PathPrefix(`/brand/`) ||
+        PathPrefix(`/category/`)
+      )'
 
   services:
     app-server:
@@ -37,15 +48,15 @@ http:
           - url: http://host.docker.internal:3030
 
   middlewares:
-    strip-app-server:
+    strip-app-server-docs-api:
       stripPrefix:
         prefixes:
           - '/msx-server'
-    strip-app-upload-server:
+    strip-app-upload-server-docs-api:
       stripPrefix:
         prefixes:
           - '/msx-upload'
-    strip-app-mail-server:
+    strip-app-mail-server-docs-api:
       stripPrefix:
         prefixes:
           - '/msx-mail'

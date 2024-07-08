@@ -9,7 +9,11 @@ export class Logs {
   @Column()
   public message_id!: string;
 
-  @Column()
+  @Column({
+    type: 'enum',
+    enum: StatusLogLevel,
+    default: StatusLogLevel.Info,
+  })
   public level!: StatusLogLevel;
 
   @Column()

@@ -30,7 +30,10 @@ export class Sales extends BaseEntity {
   @Column({ nullable: true })
   public max_sale_price!: number;
 
-  @Column({ nullable: true })
+  @Column({
+    type: 'json',
+    default: [],
+  })
   public shop_id!: number[];
 
   @Column()
