@@ -16,11 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "@libs/casl": ["libs/casl/src/index.ts"],
+      "@libs/cerbos": ["libs/cerbos/src/index.ts"],
       "@libs/guard": ["libs/guard/src/index.ts"],
       "@libs/postgres": ["libs/postgres/src/index.ts"],
       "@libs/redis": ["libs/redis/src/index.ts"],
       "@libs/utility": ["libs/utility/src/index.ts"],
-      "@libs/cerbos": ["libs/cerbos/src/index.ts"]
+      "@libse/rabbitmq": ["libs/rabbitmq/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

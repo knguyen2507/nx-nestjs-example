@@ -3,6 +3,7 @@ export * from './constant/environment';
 export * from './constant/path.prefix';
 export * from './constant/enum';
 export * from './constant/initial.data';
+export * from './constant/rmq.const';
 // interface
 export * from './interface';
 // dto

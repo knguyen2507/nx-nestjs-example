@@ -16,5 +16,6 @@
   },
   "vs-kubernetes": {
     "disable-linters": ["resource-limits"]
-  }
+  },
+  "recommendations": ["esbenp.prettier-vscode", "firsttris.vscode-jest-runner"]
 }
