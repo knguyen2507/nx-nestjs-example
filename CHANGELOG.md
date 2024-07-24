@@ -1,3 +1,11 @@
+## <small>1.0.2 (2024-07-24)</small>
+
+* feat: add entities ([d980d15](https://github.com/knguyen2507/nx-nestjs-example/commit/d980d15))
+* feat: add rabbitmq ([a3ea3a7](https://github.com/knguyen2507/nx-nestjs-example/commit/a3ea3a7))
+* feat: get products api ([94088ac](https://github.com/knguyen2507/nx-nestjs-example/commit/94088ac))
+
+
+
 ## <small>1.0.1 (2024-07-01)</small>
 
 * fix: postgres module ([c883054](https://github.com/knguyen2507/nx-nestjs-example/commit/c883054))
